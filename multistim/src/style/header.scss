@@ -18,12 +18,32 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 1.3;
+    
 }
 
-.links a{
+.link{
     text-decoration: none;
     color: $color-text;
-    
+    position: relative;
+}
+
+.link::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $color-text;
+    left: 0;
+    bottom: -5px;
+    transform: scale(0);
+    transform-origin:right ;
+    transition: transform 0.15s;
+}
+
+.link:hover:before{
+    transform: scale(1);
+    transform-origin:left ;
+    transition: transform 0.15s;
 }
 
 .req-demo-btn{
@@ -35,9 +55,35 @@
     color: white;
     border-radius: 40px;
     padding: 10px 40px;
+    transition: ease 0.8s;
+        &:hover{
+            background: linear-gradient(87.96deg, #04C65D 2%, #5B5AFF 107.35%);
+            transition: ease 0.8s;
+        }
 }
+
 
 .header_btn{
     padding: 11px 23px;
 }
+
+.open-icon{
+    display: none;
+}
+
+// ======================================
+// Media
+
+@media (max-width: 1023.8px) {
+    .open-icon{
+        display: block;
+    }
+    .links{
+        display: none;
+    }
+    .req-header{
+        display: none;
+    }
+}
+
 
